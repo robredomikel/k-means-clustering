@@ -1,4 +1,5 @@
 
+
 # k-means-clustering
 This project is based on the final programming project required in the course Data Intensive Programming at Tampere University. For that, Scala was used as the **functional programming language** to work with the Apache Spark Session used.
   
@@ -39,23 +40,25 @@ spark.sparkContext.setLogLevel("ERROR")
 spark.conf.set("spark.sql.shuffle.partitions", "5")
 ```
 ### Basic 2D K-means
-This task implements the k means clustering for two dimensional data. It uses
+This task implements the k means clustering for two dimensional data. It uses the 2D dataset and computes the two columns converted in dataframes to use the MLlib.
+
 ### Basic 3D K-means
-Point class will define the attributes and methods implemented for Point objects, such as, their coordinates, height or name. Mostly, all methods implemented in this class are __getter__ functions, so that point class works to define and store __all the information__ of each point.
+Same topic as in the previous task but with a third extra column of data in the 3D dataset.
 
 ### K-means using labels
+Given the 2D dataset, this time the LABEL column is used to divide the observations between "Ok" and "Fatal". Then the clustering should be done in three dimensions. 
 
 ### Silhouette Method
+The Silhouette method is used to find the optimal number of clusters in the data. It is implemented for the previous cases so that in both cases the optimal number of clusters is calculated.
+
 ## Further operations
-Once all the points and routes are built in the map, the program also computes the **length of the specified route** and **the highest distance rise from a given point**.
-![orienteering](https://github.com/robredomikel/orienteering/blob/main/screenshots/rise.PNG)
+- The program is able to run the 2D dirty dataset; it cleans all the imperfections of the data in the dataset so that it processes only the observations that match the required format in the ML pipeline.
+- It uses a standarized ML pipeline in all the tasks.
+-  The cluster centers shown in the results of all the tasks are scaled back to the original scale of the dara after this being processed in the ML pipeline.
 
 ## Further comments
-This project should be seen from a **Modularity** backed perspective. Indeed, all the implemented code has been based on this part of the project.
-
-Rather than efficiency, the implementation of this project is more oriented to the **connection between different objects**, so there may be surely some operations that could be more efficient. 
+The importance of this project is based on the different usage of **Dataframes**, **RDDs**, **Scala vectors** and how to build a standarized **ML pipeline**. Also, how to make use of data managed in clusters with Apache Spark is a hidden but important point of this project.
 
 ## References
 - [Data-Intensive Programming, Lectures | Tampere universities (tuni.fi)](https://www.tuni.fi/en/study-with-us/data-intensive-programming-lectures)
 - [Scala Tutorial (tutorialspoint.com)](https://www.tutorialspoint.com/scala/index.htm)
-- 
